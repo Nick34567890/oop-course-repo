@@ -43,6 +43,7 @@ public class Main {
           System.out.println("Invalid input");
       }
     }
+    // This is a test
 
     scanner.close();
     mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
