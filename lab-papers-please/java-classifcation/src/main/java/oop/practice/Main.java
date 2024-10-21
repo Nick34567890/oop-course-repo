@@ -60,3 +60,91 @@ public class Main {
         mapper.writeValue(new File("C:\\Users\\My\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\marvel.json"), marvel);
     }
 
+
+
+    static class Universe {
+        private String name;
+        private List<JsonNode> individuals;
+
+        public Universe(String name, List<JsonNode> individuals) {
+            this.name = name;
+            this.individuals = individuals;
+        }
+
+        @JsonProperty("name")
+        public String getName() {
+            return name;
+        }
+
+        @JsonProperty("individuals")
+        public List<JsonNode> getIndividuals() {
+            return individuals;
+        }
+    }
+}
+
+
+class Individual {
+    private String id;
+    private String planet;
+    private Integer age;
+    private List<String> traits;
+    private Boolean humanoidStatus; // Change this to Boolean
+
+    // Getters and Setters
+    @JsonProperty("id")
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonProperty("planet")
+    public String getPlanet() {
+        return planet;
+    }
+
+    public void setPlanet(String planet) {
+        this.planet = planet;
+    }
+
+    @JsonProperty("age")
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @JsonProperty("traits")
+    public List<String> getTraits() {
+        return traits;
+    }
+
+    public void setTraits(List<String> traits) {
+        this.traits = traits;
+    }
+
+    @JsonProperty("isHumanoid")
+    public Boolean getHumanoidStatus() { // Change the return type to Boolean
+        return humanoidStatus;
+    }
+
+    public void setHumanoidStatus(Boolean humanoidStatus) {
+        this.humanoidStatus = humanoidStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Individual{" +
+                "id='" + id + '\'' +
+                ", planet='" + planet + '\'' +
+                ", age=" + age +
+                ", traits=" + traits +
+                ", humanoidStatus=" + humanoidStatus +
+                '}';
+    }
+}
