@@ -80,12 +80,14 @@ class TextData {
         return longestWord;
     }
 
-    public void printData() {
-        System.out.println("File Name: " + getFileName());
-        System.out.println("Number of Vowels: " + getNumberOfVowels());
-        System.out.println("Number of Consonants: " + getNumberOfConsonants());
-        System.out.println("Total Letters: " + getNumberOfLetters());
-        System.out.println("Number of Sentences: " + getNumberOfSentences());
-        System.out.println("Longest Word: " + getLongestWord());
+    @Override
+    public String toString() {
+        return "File Name: " + getFileName() + "\n" +
+                "Number of Vowels: " + getNumberOfVowels() + "\n" +
+                "Number of Consonants: " + getNumberOfConsonants() + "\n" +
+                "Total Letters: " + getNumberOfLetters() + "\n" +
+                "Number of Sentences: " + getNumberOfSentences() + "\n" +
+                "Longest Word: " + getLongestWord();
     }
+
 }
