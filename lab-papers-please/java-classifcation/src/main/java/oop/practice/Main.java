@@ -17,7 +17,7 @@ public class Main {
         mapper.enable(SerializationFeature.INDENT_OUTPUT); // Enable pretty-printing
 
         // Load input JSON file
-        File inputFile = new File("C:\\Users\\My\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\input.json");
+        File inputFile = new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\input.json");
         JsonNode data = mapper.readTree(inputFile).get("data");
 
         // Initialize universes
@@ -54,10 +54,10 @@ public class Main {
         }
 
         // Save the classified universes into JSON files
-        mapper.writeValue(new File("C:\\Users\\My\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\starwars.json"), starWars);
-        mapper.writeValue(new File("C:\\Users\\My\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\hitchhiker.json"), hitchhikers);
-        mapper.writeValue(new File("C:\\Users\\My\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\rings.json"), rings);
-        mapper.writeValue(new File("C:\\Users\\My\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\marvel.json"), marvel);
+        mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\starwars.json"), starWars);
+        mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\hitchhiker.json"), hitchhikers);
+        mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\rings.json"), rings);
+        mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\marvel.json"), marvel);
     }
 
     public static int getClassification(Individual individual) {
