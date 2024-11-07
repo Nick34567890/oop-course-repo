@@ -21,6 +21,7 @@ public class Main {
         JsonNode data = mapper.readTree(inputFile).get("data");
 
         // Initialize universes
+//        ArrayList
         Universe starWars = new Universe("starWars", new ArrayList<>());
         Universe hitchhikers = new Universe("hitchHiker", new ArrayList<>());
         Universe marvel = new Universe("marvel", new ArrayList<>());
@@ -32,10 +33,10 @@ public class Main {
             Individual individual = mapper.treeToValue(entry, Individual.class);
 
             // Classify based on the classification logic
-            int classification = getClassification(individual);
+            int classifiedUniverse = getUniverseClassification(individual);
 
             // Add the individual to the appropriate universe based on the classification
-            switch (classification) {
+            switch (classifiedUniverse) {
                 case 1:
                     starWars.getIndividuals().add(entry);
                     break;
@@ -54,13 +55,13 @@ public class Main {
         }
 
         // Save the classified universes into JSON files
-        mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\starwars.json"), starWars);
+        mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\starwars.json"), starWars.name);
         mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\hitchhiker.json"), hitchhikers);
         mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\rings.json"), rings);
         mapper.writeValue(new File("C:\\Users\\My\\Documents\\University\\POO\\oop-course-repo\\lab-papers-please\\java-classifcation\\src\\main\\resources\\output\\marvel.json"), marvel);
     }
 
-    public static int getClassification(Individual individual) {
+    public static int getUniverseClassification(Individual individual) {
         Boolean isHumanoid = individual.getHumanoidStatus();
         String planet = individual.getPlanet();
         Integer age = individual.getAge(); // Age can be null
@@ -210,68 +211,3 @@ public class Main {
     }
 }
 
-
-class Individual {
-    private String id;
-    private String planet;
-    private Integer age;
-    private List<String> traits;
-    private Boolean humanoidStatus; // Change this to Boolean
-
-    // Getters and Setters
-    @JsonProperty("id")
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @JsonProperty("planet")
-    public String getPlanet() {
-        return planet;
-    }
-
-    public void setPlanet(String planet) {
-        this.planet = planet;
-    }
-
-    @JsonProperty("age")
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    @JsonProperty("traits")
-    public List<String> getTraits() {
-        return traits;
-    }
-
-    public void setTraits(List<String> traits) {
-        this.traits = traits;
-    }
-
-    @JsonProperty("isHumanoid")
-    public Boolean getHumanoidStatus() { // Change the return type to Boolean
-        return humanoidStatus;
-    }
-
-    public void setHumanoidStatus(Boolean humanoidStatus) {
-        this.humanoidStatus = humanoidStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "Individual{" +
-                "id='" + id + '\'' +
-                ", planet='" + planet + '\'' +
-                ", age=" + age +
-                ", traits=" + traits +
-                ", humanoidStatus=" + humanoidStatus +
-                '}';
-    }
-}
