@@ -16,22 +16,22 @@ public class MainProgram {
         System.out.flush();
 
         // Create and make a Cappuccino
-        Coffee cappuccino = new Cappuccino(EnumIntensity.NORMAL, 50).makeCappuccino();
+        Coffee cappuccino = new Cappuccino(EnumIntensity.NORMAL, 42).makeCappuccino();
         cappuccino.printCoffeeDetails();
         System.out.println();
 
         // Create and make an Americano
-        Coffee americano = new Americano(EnumIntensity.NORMAL, 40).makeAmericano();
+        Coffee americano = new Americano(EnumIntensity.NORMAL, 52).makeAmericano();
         americano.printCoffeeDetails();
         System.out.println();
 
         // Create and make a Pumpkin Spice Latte
-        Coffee pumpkinSpiceLatte = new PumpkinSpiceLatte(EnumIntensity.LIGHT, 70, 30).makePumpkinSpiceLatte();
+        Coffee pumpkinSpiceLatte = new PumpkinSpiceLatte(EnumIntensity.LIGHT, 90, 30).makePumpkinSpiceLatte();
         pumpkinSpiceLatte.printCoffeeDetails();
         System.out.println();
 
         // Create and make a Syrup Cappuccino
-        Coffee syrupCappuccino = new SyrupCappuccino(EnumIntensity.LIGHT, 50, EnumSyrupType.CHOCOLATE).makeSyrupCappuccino();
+        Coffee syrupCappuccino = new SyrupCappuccino(EnumIntensity.LIGHT, 60, EnumSyrupType.CHOCOLATE).makeSyrupCappuccino();
         syrupCappuccino.printCoffeeDetails();
         System.out.println();
     }
