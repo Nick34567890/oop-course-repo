@@ -1,5 +1,8 @@
 package oop.Lab3.Task3CarRelated;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Car {
     private int id;
     private CarType type;
@@ -7,8 +10,16 @@ public class Car {
     private boolean isDining;
     private int consumption;
 
-    // Constructor
-    public Car(int id, String type, String passengers, boolean isDining, int consumption) {
+    // Default constructor for Jackson
+    public Car() {}
+
+    // Constructor with parameters
+    @JsonCreator
+    public Car(@JsonProperty("id") int id,
+               @JsonProperty("type") String type,
+               @JsonProperty("passengers") String passengers,
+               @JsonProperty("isDining") boolean isDining,
+               @JsonProperty("consumption") int consumption) {
         this.id = id;
         this.type = type.equals("ELECTRIC") ? CarType.ELECTRIC : CarType.GAS;
         this.passengers = passengers.equals("ROBOTS") ? PassengersType.ROBOTS : PassengersType.PEOPLE;
@@ -57,4 +68,3 @@ public class Car {
         this.consumption = consumption;
     }
 }
-

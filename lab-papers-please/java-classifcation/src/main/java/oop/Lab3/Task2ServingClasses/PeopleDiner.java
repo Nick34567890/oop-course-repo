@@ -1,5 +1,7 @@
 package oop.Lab3.Task2ServingClasses;
 
+import oop.Lab3.Task2ServingClasses.Intergaces.IDineable;
+
 public class PeopleDiner implements IDineable {
     @Override
     public void serveDiner(int carId) {
