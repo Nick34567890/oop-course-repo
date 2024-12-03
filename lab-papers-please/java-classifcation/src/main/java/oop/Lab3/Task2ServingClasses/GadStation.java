@@ -1,4 +1,10 @@
 package oop.Lab3.Task2ServingClasses;
 
-public class GadStation {
+public class GasStation implements IRefuelable {
+    @Override
+    public void refuel(int carId) {
+        System.out.println("Refueling GAS Car " + carId);
+        ServeData.incrementGasCars();
+    }
 }
+
